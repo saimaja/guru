@@ -1,0 +1,11 @@
+<h1>List of Users</h1>
+
+<ul>
+<%@users.each do |user|%>
+<li><%=link_to user.first_name, guru_user_path(user)%></li>
+<%end%>
+</ul>
+
+<%=link_to "Create a New User", new_guru_user_path%>
+<br><br>
+<%=button_to "See All Posts", guru_posts_path, method: "get"%>
