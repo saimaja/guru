@@ -1,0 +1,17 @@
+<h1><%=@user.first_name%>'s Detail Page</h1>
+
+<h3>Name:</h3><%=@user.first_name%> <%=@user.last_name%>
+<h3>About:</h3><%=@user.about%>
+<h3>Interests:</h3><%=@user.interests%>
+<h3>Posts:</h3>
+<ul>
+<%@user.posts.each do |post|%>
+<li><%=link_to post.title, post_path(post.id)%></li>
+<%end%>
+</ul>
+
+
+
+
+<%=button_to "Delete User", user_path(@user), method: "delete"%>
+<%=button_to "Return to User List", users_path, method: "get"%>

@@ -1,0 +1,10 @@
+<h1>All Posts</h1>
+
+<ul>
+<%@posts.each do |post|%>
+<li><%=link_to post.title, post_path(post)%></li>
+<%end%>
+</ul>
+
+<%=button_to "Create New Post", new_post_path, method: "post"%>
+<%=button_to "See All Users", users_path, method: "get"%>

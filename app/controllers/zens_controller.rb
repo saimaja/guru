@@ -1,0 +1,2 @@
+class ZensController < ApplicationController
+end
