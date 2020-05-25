@@ -5,5 +5,7 @@
 <h3>Description:</h3><%=@post.description%>
 <h3>Type:</h3><%=@post.media_type%>
 
+
 <%=button_to "Delete Post", post_path(@post), method: "delete"%>
 <%=button_to "Return to Posts", posts_path, method: "get"%>
+<%=button_to "Zen", post_zens_path(@post), method: "post" %>

@@ -6,6 +6,10 @@
 <%end%>
 </ul>
 
+<p> <%= @posts.zens.count %> <%= (@posts.zens.count) == 1 ? "Zen" : "Zens" %> </p>
+
+
 <%=link_to "Create New Post", new_post_path%>
 <br><br>
 <%=button_to "See All Users", users_path, method: "get"%>
+
