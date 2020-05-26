@@ -1,4 +1,4 @@
-class Guru::PostsController < ApplicationController
+class PostsController < ApplicationController
 
     before_action :find_post, only: [:show, :edit, :update, :destroy]
 
@@ -16,7 +16,7 @@ class Guru::PostsController < ApplicationController
 
     def create
         @post = Post.create(post_params)
-        redirect_to guru_post_path(@post)
+        redirect_to post_path(@post)
     end
 
     def edit
@@ -24,12 +24,12 @@ class Guru::PostsController < ApplicationController
 
     def update
         @post.update(post_params)
-        redirect_to guru_post_path(@post)
+        redirect_to post_path(@post)
     end
 
     def destroy
         @post.destroy
-        redirect_to guru_posts_path
+        redirect_to posts_path
     end
 
     private

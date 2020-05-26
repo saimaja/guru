@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_051214) do
+ActiveRecord::Schema.define(version: 2020_05_26_140103) do
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
@@ -28,8 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_051214) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "about"
     t.string "interests"
   end

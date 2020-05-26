@@ -1,4 +1,4 @@
-class Guru::UsersController < ApplicationController
+class UsersController < ApplicationController
    
     before_action :find_user, only: [:show, :edit, :update, :destroy]
 
@@ -15,7 +15,7 @@ class Guru::UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        redirect_to guru_user_path(@user)
+        redirect_to user_path(@user)
     end
 
     def edit
@@ -23,12 +23,12 @@ class Guru::UsersController < ApplicationController
 
     def update
         @user.update(user_params)
-        redirect_to guru_user_path(@user)
+        redirect_to user_path(@user)
     end
 
     def destroy
         @user.destroy
-        redirect_to guru_users_path
+        redirect_to users_path
     end
 
     private
@@ -38,6 +38,6 @@ class Guru::UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :about, :interests)
+        params.require(:user).permit(:name, :about, :interests)
     end
 end

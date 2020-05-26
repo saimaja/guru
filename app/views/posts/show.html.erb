@@ -1,6 +1,6 @@
 <h1>Post Detail</h1>
 
-<h3>User:</h3><%=@post.user.first_name%>
+<h3>User:</h3><%=@post.user.name%>
 <h3>Title:</h3><%=@post.title%>
 <h3>Description:</h3><%=@post.description%>
 <h3>Type:</h3><%=@post.media_type%>
@@ -8,13 +8,13 @@
 
 <div>
 <h3>Add Comment:</h3>
-<%=form_for @new_comment, url: guru_post_path(@post.id) do |f|%>
+<%=form_for @new_comment, url: post_path(@post.id) do |f|%>
 <%=f.label :text%>
 <%=f.text_area :text, maxlength: 200%>
 <%=f.submit "Create Comment"%>
 <%end%>
 </div>
 
-<%=button_to "Delete Post", guru_post_path(@post), method: "delete"%>
-<%=button_to "Return to Posts", guru_posts_path, method: "get"%>
-<%=button_to "Zen", guru_post_path(@post.id), method: "get"%>
+<%=button_to "Delete Post", post_path(@post), method: "delete"%>
+<%=button_to "Return to Posts", posts_path, method: "get"%>
+<%=button_to "Zen", post_path(@post.id), method: "get"%>

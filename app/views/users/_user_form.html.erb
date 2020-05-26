@@ -1,0 +1,13 @@
+<%=form_for @user do |f|%>
+<%=f.label :name%>
+<%=f.text_field :name%>
+<%=f.label :about%>
+<%=f.text_field :about%>
+<%=f.label :interests%>
+<%=f.text_field :interests%>
+<div>
+<%=f.submit%>
+<%end%>
+</div>
+<br>
+<%=button_to "Return to List of Users", users_path, method: "get"%>
