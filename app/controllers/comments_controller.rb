@@ -1,11 +1,24 @@
 class CommentsController < ApplicationController
-
-    def new
-        @comment = Comment.new
-    end
+    before_action :find_post
 
     def create
-        @comment = Comment.create(user_id: params[:user_id], post_id: params[:post_id])
-        redirect_to users_post_path(params[:user_id], params[:post_id])
+        Comment.create(text: params[:comment][:text], user_id: current_user.id, post_id: params[:post_id])
+        redirect_to post_path(@post)
+    end
+
+    def destroy
+      
+        @comment = Comment.find(params[:id])
+        @comment.destroy
+        redirect_to post_path(@post)
+    end
+
+
+    private
+
+    def find_post
+        @post = Post.find(params[:post_id])
     end
 end
+  
+
