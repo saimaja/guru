@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+    
+    get 'login', to: 'sessions#show_login_form'
+    post 'login', to: 'sessions#login_user'
+    delete 'logout', to: 'sessions#logout_user'
+  
     resources :comments
     resources :zens
     resources :posts 
