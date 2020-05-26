@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         logged_in_user = User.find_by(username: username)
         if logged_in_user
             session[:logged_in_user] = logged_in_user.id
-            redirect_to users_path
+            redirect_to posts_path
         else
             flash[:error_message] = "No user found with that name"
             render :login

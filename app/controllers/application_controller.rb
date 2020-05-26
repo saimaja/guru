@@ -9,10 +9,11 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
+        #memoization
         if @current_user
             return @current_user
         else
-            @current_user = User.find(session[:logged_in_user_id])
+            @current_user = User.find(session[:logged_in_user])
             return @current_user
         end
     end
