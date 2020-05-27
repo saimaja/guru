@@ -13,7 +13,7 @@
   <% unless controller_name == 'sessions' && action_name == 'show_login_form'%>
 
   
-    <% if session[:logged_in_user] %>
+    <% if session[:logged_in_user_id] %>
       <div> Welcome <%= current_user.username %> </div>
       <div><%= link_to "Logout", logout_path, method: "delete"%>
       <%elsif action_name == 'homepage'%>
