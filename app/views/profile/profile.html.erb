@@ -1,0 +1,14 @@
+<h1><%=@user.name%>'s Detail Page</h1>
+
+<h3>Name:</h3><%=@user.name%> 
+<h3>Occupation:</h3><%=@user.occupation%>
+<h3>Favorite Quote:</h3><%=@user.quote%>
+<h3>Guru Status:</h3>
+
+
+<h3>Your Posts:</h3>
+<ul>
+<%@user.posts.each do |post|%>
+<li><%=link_to post.title, user_post_path(post.id)%> | Zens: <%=post.zens.count%></li>
+<%end%>
+</ul>

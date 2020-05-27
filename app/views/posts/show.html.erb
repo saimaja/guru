@@ -10,7 +10,7 @@
 <h3>Comments:</h3>
 <ul>
 <%@post.comments.each do |comment|%>
-<li><%=comment.text%> <%=button_to "Delete this Comment", post_comment_path(@post.id), method: "delete"%></li>
+<li><%=comment.text%> <%=button_to "Delete this Comment", post_comment_path(post_id: @post.id, id: comment.id), method: "delete"%></li>
 <%end%>
 </ul>
 

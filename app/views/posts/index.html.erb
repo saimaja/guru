@@ -2,12 +2,13 @@
 
 <ul>
 <%@posts.each do |post|%>
-<li><%=link_to post.title, post_path(post)%> | Zens: <%=post.zens.count%></li>
+<li><%=link_to post.title, post_path(post.id)%> | by <%=link_to post.user.name, user_path(post.user)%> </li>
+<div> Zens: <%=post.zens.count%> | Comments: <%=post.comments.count%></div>
 <%end%>
 </ul>
 
 
 <%=link_to "Create New Post", new_post_path%>
-<br><br>
-<%=button_to "See All Users", users_path, method: "get"%>
+
+
 
