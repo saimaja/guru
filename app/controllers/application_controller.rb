@@ -5,9 +5,6 @@ class ApplicationController < ActionController::Base
     def homepage
     end
 
-    def about
-    end
-
     def current_user
         #memoization
         if @current_user

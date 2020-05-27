@@ -9,5 +9,16 @@ class User < ApplicationRecord
     has_many :following_users, foreign_key: :followee_id, class_name: 'Follow'
     has_many :followers, through: :following_users
 
+     
+    def feed
+       #create an empty array
+       #find all followees for user
+       #get posts for all followees
+       #array should return followee posts for user
+     
+        posts = self.followees.map do |followee| 
+            followee.posts
+        end.flatten 
+    end
     
 end

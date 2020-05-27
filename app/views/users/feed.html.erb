@@ -1,0 +1,10 @@
+<h1><%=current_user.name%>'s Feed</h1>
+
+<ul>
+<%current_user.feed.each do |post|%>
+<li><%=link_to post.title, post_path(post)%> | by <%=link_to post.user.name, user_path(post.user)%> </li>
+<div> Zens: <%=post.zens.count%> | Comments: <%=post.comments.count%></div>
+<%end%>
+</ul>
+
+

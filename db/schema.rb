@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_042614) do
+ActiveRecord::Schema.define(version: 2020_05_27_173518) do
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_042614) do
     t.integer "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "media_link"
   end
 
   create_table "users", force: :cascade do |t|

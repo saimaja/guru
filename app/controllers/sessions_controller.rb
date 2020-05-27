@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
     def show_login_form
-        render :login
+        redirect_to '/'
     end
 
 
@@ -10,15 +10,15 @@ class SessionsController < ApplicationController
         logged_in_user = User.find_by(username: username)
         if logged_in_user
             session[:logged_in_user] = logged_in_user.id
-            redirect_to user_path(current_user.id)
+            redirect_to feed_path
         else
             flash[:error_message] = "No user found with that name"
-            render :login
+            redirect_to '/'
         end
     end
 
     def logout_user
         session.clear
-        redirect_to login_path
+        redirect_to '/'
     end
 end
