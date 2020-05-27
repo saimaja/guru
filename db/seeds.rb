@@ -15,30 +15,30 @@ Comment.destroy_all
 
 #users
 
-u1 = User.create(name: "Saima Akhtar", username: "sja", occupation: "Architect", quote: Faker::Quote.yoda, password: 'test', photo_url: )
-u2 = User.create(name: "Injae Lee", username: "ilee", occupation: "Entrepreneur", quote: Faker::Quote.yoda, password: 'test', photo_url: )
-u3 = User.create(name: "Steve Jobs", username: "jobs", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: )
-u4 = User.create(name: "Sai Maa", username: "sai", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: )
-u5 = User.create(name: "Denpok Singh", username: "den", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: )
-u6 = User.create(name: "Osho", username: "ilee", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: "https://www.oshonews.com/wp-content/uploads/2018/07/Osho.jpg")
-u7 = User.create(name: "Yoda", username: "ilee", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: )
-u8 = User.create(name: "", username: "ilee", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: )
-u9 = User.create(name: "Injae Lee", username: "ilee", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: )
-u10 = User.create(name: "Injae Lee", username: "ilee", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: )
+u1 = User.create(name: "Saima Akhtar", username: "sja", occupation: "Architect", quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url:'' )
+u2 = User.create(name: "Injae Lee", username: "ilee", occupation: "Entrepreneur", quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: '')
+u3 = User.create(name: "Steve Jobs", username: "jobs", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: '')
+u4 = User.create(name: "Sai Maa", username: "sai", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url:'' )
+u5 = User.create(name: "Denpok Singh", username: "den", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: '')
+u6 = User.create(name: "Osho", username: 'osho', occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://www.oshonews.com/wp-content/uploads/2018/07/Osho.jpg')
+u7 = User.create(name: "Yoda", username: "yoda", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: '')
+u8 = User.create(name: "", username: "ilee", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: '')
+u9 = User.create(name: "Injae Lee", username: "ilee", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: '')
+u10 = User.create(name: "Injae Lee", username: "ilee", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: '')
 
 
 #posts
-p1 = Post.create(title: "That Discomfort You're Feeling is Grief", description: "I loved this HBR article on Covid and anticipatory grief. Check it out!", media_type: "Article", media_link: "https://hbr.org/2020/03/that-discomfort-youre-feeling-is-grief", user: saima)
-p2 = Post.create(title: "Overcome Anxiety in 7 minutes", description: "Think you can beat anxiety in 7 minutes? Watch this and let me know what you think.", media_type: "Ted Talk", user: injae )
+p1 = Post.create(title: "That Discomfort You're Feeling is Grief", description: "I loved this HBR article on Covid and anticipatory grief. Check it out!", media_type: "Article", media_link: "https://hbr.org/2020/03/that-discomfort-youre-feeling-is-grief", user: u1)
+p2 = Post.create(title: "Overcome Anxiety in 7 minutes", description: "Think you can beat anxiety in 7 minutes? Watch this and let me know what you think.", media_type: "Ted Talk", user: u2 )
 
 
 #follows
 
-Follow.create(followee: saima, follower: injae)
+Follow.create(followee: u1, follower: u2)
 
 #comments
 
 
 
 #zens
-Zen.create(user: injae, post: post1)
+Zen.create(user: u1, post: p1)

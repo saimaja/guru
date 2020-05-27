@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
     before_action :find_post, only: [:show, :edit, :update, :destroy,]
-
+    
+    
     def index
         @posts = Post.all
     end
@@ -45,7 +46,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:description, :url, :media_type, :user_id, :media_link)
+        params.require(:post).permit(:title, :description, :media_type, :user_id, :media_link)
     end
 
 end
