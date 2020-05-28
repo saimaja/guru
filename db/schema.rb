@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_220526) do
+ActiveRecord::Schema.define(version: 2020_05_28_114522) do
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 2020_05_27_220526) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.string "description"
+    t.text "description"
     t.string "media_type"
-    t.integer "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string "media_link"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 2020_05_27_220526) do
     t.string "username"
     t.string "occupation"
     t.string "quote"
-    t.string "photo_url"
     t.string "password_digest"
     t.string "password_confirmation"
+    t.string "photo_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
