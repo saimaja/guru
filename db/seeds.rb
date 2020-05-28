@@ -96,7 +96,7 @@ f37 = Follow.create(followee: u12, follower: u13)
 f38 = Follow.create(followee: u13, follower: u11)
 f39 = Follow.create(followee: u3, follower: u11)
 f40 = Follow.create(followee: u3, follower: u13)
-f26 = Follow.create(followee: u3, follower: u12)
+
 
 
 
