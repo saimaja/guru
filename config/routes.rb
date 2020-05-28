@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
     
     
+  get 'follows/create'
+  get 'follows/destroy'
     root to: "application#homepage"
     
     get 'login', to: 'sessions#show_login_form'
@@ -12,7 +14,10 @@ Rails.application.routes.draw do
 
 
     # post 'posts/:id', to: 'posts#create_comment'
-    resources :users  
+    
+    resources :users do 
+      resources :follows
+    end
       
     resources :posts do 
         resources :zens

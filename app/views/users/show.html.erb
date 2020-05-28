@@ -1,6 +1,7 @@
-<h1><%=@user.name%>'s Page</h1>
+<h1><%=@user.name%>'s Profile</h1>
 
 <h3>Name:</h3><%=@user.name%> 
+<%=button_to "Follow", user_follows_path(@user), method: "post"%>
 <h3>Occupation:</h3><%=@user.occupation%>
 <h3>Favorite Quote:</h3><%=@user.quote%>
 <h3>Guru Status:</h3>
@@ -9,7 +10,7 @@
 <h3><%=@user.name%>'s Posts:</h3>
 <ul>
 <%@user.posts.each do |post|%>
-<li><%=link_to post.title, user_path(post.id)%> | Zens: <%=post.zens.count%></li>
+<li><%=link_to post.title, post_path(post.id)%> | Zens: <%=post.zens.count%></li>
 <%end%>
 </ul>
 

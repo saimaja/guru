@@ -8,8 +8,9 @@ class SessionsController < ApplicationController
 
     def login_user
         username = params[:username]
-        # password = params[:password]
+        password = params[:password]
         logged_in_user = User.find_by(username: username)
+        
         if logged_in_user 
         # && logged_in_user.authenticate(password)
             session[:logged_in_user_id] = logged_in_user.id
