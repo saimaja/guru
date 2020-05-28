@@ -14,8 +14,10 @@
 
   
     <% if session[:logged_in_user_id] %>
-      <div> Welcome <%= current_user.username %> </div>
+      <div> Welcome <%= current_user.username %>! </div>
       <div><%=link_to "Home", feed_path, method: 'get'%></div>
+      <div><%=link_to "Profile", user_path(current_user), method: 'get'%>
+      <div><%=link_to "Create", new_post_path, method: 'get'%></div>
       <div><%=link_to "Explore", posts_path, method: 'get'%></div>
       <div><%= link_to "Logout", logout_path, method: 'delete'%>
       

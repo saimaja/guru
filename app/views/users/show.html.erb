@@ -1,6 +1,7 @@
-<h1><%=@user.name%>'s Page</h1>
+<h1><%=@user.name%>'s Profile</h1>
 
 <h3>Name:</h3><%=@user.name%> 
+<%=button_to "Follow", user_follows_path(@user), method: "post"%>
 <h3>Occupation:</h3><%=@user.occupation%>
 <h3>Favorite Quote:</h3><%=@user.quote%>
 <h3>Guru Status:</h3>

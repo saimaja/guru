@@ -3,7 +3,7 @@
 <h3>User:</h3><%=link_to @post.user.name, user_path(@post.user.id)%>
 <h3>Description:</h3><%=@post.description%>
 <h3>Post:</h3><%=link_to @post.title, @post.media_link, target: :_blank%>
-<div><%=@post.media_type%> | <%=@post.zens.count%> <%= (@post.zens.count) == 1 ? 'Zen' : 'Zens'%></div>
+<div><%=@post.media_type%> | <%=@post.zens.count%> <%= (@post.zens.count) == 1 ? 'Zen' : 'Zens'%><%=button_to "Zen", post_zens_path(@post), method: "post"%></div>
 
 <h3>Comments:</h3>
 <ul>
@@ -24,4 +24,4 @@
 
 <%=button_to "Delete Post", post_path(@post), method: "delete"%>
 <%=button_to "Return to Posts", posts_path, method: "get"%>
-<%=button_to "Zen", post_zens_path(@post), method: "post"%>
+

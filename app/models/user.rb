@@ -5,11 +5,23 @@ class User < ApplicationRecord
     has_many :comments, through: :posts
     has_many :zens, through: :posts
 
-    has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow'
+    has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow', dependent: :destroy
+    has_many :following_users, foreign_key: :followee_id, class_name: 'Follow', dependent: :destroy
+    
     has_many :followees, through: :followed_users
-
-    has_many :following_users, foreign_key: :followee_id, class_name: 'Follow'
     has_many :followers, through: :following_users
+
+    def follow(user)
+        followed_users.create(followee_id: user.id)
+    end
+
+    def unfollow(user)
+        followed_users.find_by(followee_id: user.id).destroy
+    end
+
+    def following?(user)
+        followees.include?(user)
+    end
 
      
     def feed

@@ -1,4 +1,4 @@
-<h1><%=current_user.name%>'s Feed</h1>
+<h1>Your Feed</h1>
 
 <ul>
 <%current_user.feed.each do |post|%>
@@ -7,4 +7,4 @@
 <%end%>
 </ul>
 
-
+<%=button_to "Create a Post", new_post_path, method: 'get'%>
