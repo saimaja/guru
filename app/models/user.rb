@@ -1,5 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
+
+    has_many :assignments
+    has_many :roles, through: :assignments
     
     has_many :posts
     has_many :comments, through: :posts
@@ -23,7 +26,10 @@ class User < ApplicationRecord
         followees.include?(user)
     end
 
-     
+    def role?(role)  
+        roles.any? { |r| r.name.underscore.to_sym == role }  
+        end   
+
     def feed
        #create an empty array
        #find all followees for user

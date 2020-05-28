@@ -1,13 +1,13 @@
 <%=form_for @user do |f|%>
-<%=f.label :name%>
-<%=f.text_field :name%>
-<%=f.label :occupation%>
-<%=f.text_field :occupation%>
-<%=f.label :quote%>
-<%=f.text_field :quote%>
+<div><%=f.label :name%>
+<%=f.text_field :name%></div>
+<div><%=f.label :occupation%>
+<%=f.text_field :occupation%></div>
+<div><%=f.label :quote%>
+<%=f.text_area :quote%></div>
 <div>
 <%=f.submit%>
 <%end%>
 </div>
 <br>
-<%=button_to "Return to List of Users", users_path, method: "get"%>
+<%=button_to "Return to User Profile", user_path(@user), method: "get"%>

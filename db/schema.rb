@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_114522) do
+ActiveRecord::Schema.define(version: 2020_05_28_160417) do
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
@@ -33,6 +33,12 @@ ActiveRecord::Schema.define(version: 2020_05_28_114522) do
     t.string "media_type"
     t.string "media_link"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
