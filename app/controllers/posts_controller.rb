@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     
     
     def index
-        @posts = Post.all
+        @posts = Post.left_joins(:zens).group(:post_id).order('COUNT(post_id) DESC')
     end
 
     def show

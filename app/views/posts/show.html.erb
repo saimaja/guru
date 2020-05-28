@@ -1,16 +1,14 @@
 <h1>Post Detail</h1>
 
-<h3>User:</h3><%=@post.user.name%>
-<h3>Title:</h3><%=link_to @post.title, @post.media_link, target: :_blank%>
+<h3>User:</h3><%=link_to @post.user.name, user_path(@post.user.id)%>
 <h3>Description:</h3><%=@post.description%>
-<h3>Type:</h3><%=@post.media_type%>
-<h3>Zens:</h3>
-<p><%=@post.zens.count%> <%= (@post.zens.count) == 1 ? 'Zen' : 'Zens'%></p>
+<h3>Post:</h3><%=link_to @post.title, @post.media_link, target: :_blank%>
+<div><%=@post.media_type%> | <%=@post.zens.count%> <%= (@post.zens.count) == 1 ? 'Zen' : 'Zens'%></div>
 
 <h3>Comments:</h3>
 <ul>
 <%@post.comments.each do |comment|%>
-<li><%=comment.text%> <%=button_to "Delete this Comment", post_comment_path(post_id: @post.id, id: comment.id), method: "delete"%></li>
+<li><%=comment.text%><br><%=comment.user.name%> <%=button_to "Delete this Comment", post_comment_path(post_id: @post.id, id: comment.id), method: "delete"%></li>
 <%end%>
 </ul>
 

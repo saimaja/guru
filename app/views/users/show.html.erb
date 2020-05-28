@@ -9,7 +9,7 @@
 <h3><%=@user.name%>'s Posts:</h3>
 <ul>
 <%@user.posts.each do |post|%>
-<li><%=link_to post.title, user_path(post.id)%> | Zens: <%=post.zens.count%></li>
+<li><%=link_to post.title, post_path(post.id)%> | Zens: <%=post.zens.count%></li>
 <%end%>
 </ul>
 
