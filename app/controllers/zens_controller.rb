@@ -4,11 +4,13 @@ class ZensController < ApplicationController
 
     def create
         if already_zen?
-            flash[:notice] = 'You can\'t zen more than once'
+            
+            redirect_to post_path(@post), :flash => { :notice => "You can\'t zen more than once" }    
         else
             @post.zens.create(user_id: current_user.id)
+            redirect_to post_path(@post)
         end
-        redirect_to post_path(@post)
+        
     end
     
     def destroy

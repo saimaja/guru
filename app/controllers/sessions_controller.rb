@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
         password = params[:password]
         logged_in_user = User.find_by(username: username)
         
-        if logged_in_user 
-        # && logged_in_user.authenticate(password)
+        if logged_in_user && logged_in_user.authenticate(password)
             session[:logged_in_user_id] = logged_in_user.id
             redirect_to feed_path
         else

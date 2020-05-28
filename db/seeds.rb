@@ -15,19 +15,19 @@ Comment.destroy_all
 
 #users
 
-u1 = User.create(name: "Saima Akhtar", username: "sja", occupation: "Architect", quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url:'https://www.ici-berlin.org/wp-content/uploads/Saima.jpg' )
-u2 = User.create(name: "Injae Lee", username: "ilee", occupation: "Entrepreneur", quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://ca.slack-edge.com/T02MD9XTF-U0116AW85ST-b89143d57514-512')
-u3 = User.create(name: "Steve Jobs", username: "jobs", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg')
-u4 = User.create(name: "Sai Maa", username: "sai", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/SaiMaaLakshmiDevi1.jpg/250px-SaiMaaLakshmiDevi1.jpg' )
-u5 = User.create(name: "Denpok Singh", username: "den", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://dg31sz3gwrwan.cloudfront.net/actor/277165/423008_medium-optimized-2.jpg')
-u6 = User.create(name: "Osho", username: 'osho', occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://www.oshonews.com/wp-content/uploads/2018/07/Osho.jpg')
-u7 = User.create(name: "Yoda", username: "yoda", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/baby-yoda-old-yoda-1574103229.jpg?crop=0.486xw:0.973xh;0.514xw,0&resize=480:*')
-u8 = User.create(name: "Oprah Winfrey", username: "oprah", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://specials-images.forbesimg.com/imageserve/1166553291/960x0.jpg?fit=scale')
-u9 = User.create(name: "Dwight Schrute", username: "dwight", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Dwight_Schrute.jpg/220px-Dwight_Schrute.jpg')
-u10 = User.create(name: "Spock", username: "spock", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://www.startrek.com/sites/default/files/styles/content_full/public/images/2019-07/8b10a9280bd46b8874af9b5cadec91d5.jpg?itok=3V9YqePf')
-u11 = User.create(name: "John Lennon", username:"john", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: 'https://en.wikipedia.org/wiki/File:John_Lennon_1969_(cropped).jpg')
-u12 = User.create(name: "Bodhidharma", username: "dharma", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: "https://en.wikipedia.org/wiki/Bodhidharma#/media/File:BodhidharmaYoshitoshi1887.jpg" )
-u13 = User.create(name: "AlphaGo", username:"go", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password_digest: 'test', password_confirmation: 'test', photo_url: "https://en.wikipedia.org/wiki/AlphaGo#/media/File:Alphago_logo_Reversed.svg")
+u1 = User.create(name: "Saima Akhtar", username: "sja", occupation: "Architect", quote: Faker::Quote.yoda, password: 'test', photo_url:'https://www.ici-berlin.org/wp-content/uploads/Saima.jpg' )
+u2 = User.create(name: "Injae Lee", username: "ilee", occupation: "Entrepreneur", quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://ca.slack-edge.com/T02MD9XTF-U0116AW85ST-b89143d57514-512')
+u3 = User.create(name: "Steve Jobs", username: "jobs", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg')
+u4 = User.create(name: "Sai Maa", username: "sai", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/SaiMaaLakshmiDevi1.jpg/250px-SaiMaaLakshmiDevi1.jpg' )
+u5 = User.create(name: "Denpok Singh", username: "den", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://dg31sz3gwrwan.cloudfront.net/actor/277165/423008_medium-optimized-2.jpg')
+u6 = User.create(name: "Osho", username: 'osho', occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://www.oshonews.com/wp-content/uploads/2018/07/Osho.jpg')
+u7 = User.create(name: "Yoda", username: "yoda", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/baby-yoda-old-yoda-1574103229.jpg?crop=0.486xw:0.973xh;0.514xw,0&resize=480:*')
+u8 = User.create(name: "Oprah Winfrey", username: "oprah", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://specials-images.forbesimg.com/imageserve/1166553291/960x0.jpg?fit=scale')
+u9 = User.create(name: "Dwight Schrute", username: "dwight", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Dwight_Schrute.jpg/220px-Dwight_Schrute.jpg')
+u10 = User.create(name: "Spock", username: "spock", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://www.startrek.com/sites/default/files/styles/content_full/public/images/2019-07/8b10a9280bd46b8874af9b5cadec91d5.jpg?itok=3V9YqePf')
+u11 = User.create(name: "John Lennon", username:"john", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password: 'test', photo_url: 'https://en.wikipedia.org/wiki/File:John_Lennon_1969_(cropped).jpg')
+u12 = User.create(name: "Bodhidharma", username: "dharma", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password: 'test', photo_url: "https://en.wikipedia.org/wiki/Bodhidharma#/media/File:BodhidharmaYoshitoshi1887.jpg" )
+u13 = User.create(name: "AlphaGo", username:"go", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password: 'test', photo_url: "https://en.wikipedia.org/wiki/AlphaGo#/media/File:Alphago_logo_Reversed.svg")
 
 #posts
 
