@@ -27,7 +27,7 @@
 </ul>
 
 
-<% if !!current_user.nil? %>
+<% if !current_user.nil? && %>
     <%=button_to "Delete User", user_path(@user), method: "delete"%>
 <% else %>
     <%=button_to "Back to Explore", posts_path, method: "get"%> 
