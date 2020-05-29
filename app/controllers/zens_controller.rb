@@ -4,7 +4,6 @@ class ZensController < ApplicationController
 
     def create
         if already_zen?
-            
             redirect_to post_path(@post), :flash => { :notice => "Relax, you already zenned this!" }    
         else
             @post.zens.create(user_id: current_user.id)
