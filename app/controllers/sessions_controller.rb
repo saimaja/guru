@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
     # skip_before_action :authorized, only: [:show_login_form, :login_user]
-
+    
     def show_login_form
         redirect_to '/'
     end
-
 
     def login_user
         username = params[:username]

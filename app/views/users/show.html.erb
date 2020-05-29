@@ -1,14 +1,15 @@
-<h1><%=@user.name%>'s Profile</h1>
-<div>Followers | <%=@user.followers.count%></div>
-<div>Following | </h3><%=@user.followees.count%></div>
-
-<h3>Name:</h3><%=@user.name%> 
-    <% if !current_user.following?(@user)%>
+<h1><%=@user.name%></h1>
+<% if !current_user.following?(@user)%>
         <%=button_to "Follow", user_follows_path(@user), method: "post"%>
     <% else %>
         <%=button_to "Unfollow", user_follow_path(@user), method: "delete"%>
     <%end%>
+<br>
 
+<div><img src= "<%= @user.photo_url %>" alt= "user image" height="170" width="160"></div>
+  
+<div>Followers | <%=@user.followers.count%></div>
+<div>Following | </h3><%=@user.followees.count%></div>
 
 
 <h3>Occupation:</h3><%=@user.occupation%>
@@ -25,6 +26,8 @@
 </ul>
 
 
-
-<%=button_to "Delete User", user_path(@user), method: "delete"%>
-<%# <%=button_to "Return to User List", users_path, method: "get"%> 
+<% if !!current_user.nil? %>
+    <%=button_to "Delete User", user_path(@user), method: "delete"%>
+<% else %>
+    <%=button_to "Back to Explore", posts_path, method: "get"%> 
+<%end%>
