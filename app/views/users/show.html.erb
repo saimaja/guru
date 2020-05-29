@@ -1,4 +1,6 @@
 <h1><%=@user.name%></h1>
+<div>Guru Status: <%=@user.guru_status%></div> 
+<br>
 <% if !current_user.following?(@user)%>
         <%=button_to "Follow", user_follows_path(@user), method: "post"%>
     <% else %>
@@ -14,11 +16,10 @@
 
 <h3>Occupation:</h3><%=@user.occupation%>
 <h3>Favorite Quote:</h3><%=@user.quote%>
-<h3>Guru Status:</h3>
-    <%=@user.guru_status%>
+
     
 
-<h3><%=@user.name%>'s Posts:</h3>
+<h3>Posts:</h3>
 <ul>
     <%@user.posts.each do |post|%>
     <li><%=link_to post.title, post_path(post.id)%> | Zens: <%=post.zens.count%></li>
