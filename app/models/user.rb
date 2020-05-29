@@ -44,4 +44,8 @@ class User < ApplicationRecord
         end.flatten 
     end
     
+    def already_zen?(post)
+        Zen.where(user_id: self.id, post_id: post.id).exists?
+    end
+
 end
