@@ -24,9 +24,9 @@ u7 = User.create(name: "Yoda", username: "yoda", occupation: Faker::Job.title, q
 u8 = User.create(name: "Oprah Winfrey", username: "oprah", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://specials-images.forbesimg.com/imageserve/1166553291/960x0.jpg?fit=scale')
 u9 = User.create(name: "Dwight Schrute", username: "dwight", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Dwight_Schrute.jpg/220px-Dwight_Schrute.jpg')
 u10 = User.create(name: "Spock", username: "spock", occupation: Faker::Job.title, quote: Faker::Quote.yoda, password: 'test', photo_url: 'https://www.startrek.com/sites/default/files/styles/content_full/public/images/2019-07/8b10a9280bd46b8874af9b5cadec91d5.jpg?itok=3V9YqePf')
-u11 = User.create(name: "John Lennon", username:"john", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password: 'test', photo_url: 'https://lh3.googleusercontent.com/proxy/Sod1qcmUC_OHLmIaTTPDVXm6pXNIRN7gJ1Db0uQVbtZooXRVFdbgI33N55Qi9fOTetVa7e6Ctm7mm5iYhipGVtzHHDWx2fdKS7ivo0LGeH1QhPEcZOBDB-Ivp7cPwQ07ItxIR1HY8ryxil8Stqs7K_bqqyEQbTTKVDGDSkK-1S0y7oYM')
+u11 = User.create(name: "John Lennon", username:"john", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password: 'test', photo_url: 'http://www.johnlennon.com/wp-content/uploads/2018/02/John-Lennon-playing-guitar-%C2%A9Yoko-Ono.jpg')
 u12 = User.create(name: "Bodhidharma", username: "dharma", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password: 'test', photo_url: "https://www.lionsroar.com/wp-content/uploads/2006/12/12468815674_f6e553f01f_o.jpg" )
-u13 = User.create(name: "AlphaGo", username:"go", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password: 'test', photo_url: "https://www.theneweconomy.com/wp-content/uploads/2017/05/AlphaGo-beats-master.jpg")
+u13 = User.create(name: "AlphaGo", username:"go", occupation: Faker::Job.title, quote:Faker::Quote.yoda, password: 'test', photo_url: "https://occ-0-299-300.1.nflxso.net/art/57a42/3ea3e4ccb7e0fe37efe7629e3a7d81a4eff57a42.jpg")
 
 #posts
 p1 = Post.create(title: "That Discomfort You're Feeling is Grief", description: "Interesting take on grief and the current moment", media_type: 'Article', media_link: 'https://hbr.org/2020/03/that-discomfort-youre-feeling-is-grief', user: u1)
