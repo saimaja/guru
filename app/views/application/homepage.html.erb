@@ -1,9 +1,9 @@
 <h1 class = 'center'>Welcome to Guru</h1>
 <h3 class = 'center'>Create a calming presence in your life</h3>
 
-<%if flash[:error_message]%>
+<div class = 'center'><%if flash[:error_message]%>
     <div class = 'error'><%= flash[:error_message] %></div>
-<%end%>
+<%end%></div>
  
 <%= form_tag login_path do %>
 <div class = 'center'>

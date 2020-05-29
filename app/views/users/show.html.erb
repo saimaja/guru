@@ -1,4 +1,4 @@
-<h1><%=@user.name%></h1>
+<div><h3><%=@user.name%></h3></div>
 <div>Guru Status: <%=@user.guru_status%></div> 
 <br>
 <% if !current_user.following?(@user)%>
@@ -8,7 +8,7 @@
     <%end%>
 <br>
 
-<div><img src= "<%= @user.photo_url %>" alt= "user image" height="170" width="160"></div>
+<div><img src= "<%= @user.photo_url %>" alt= "user image" height="100" width="100"></div>
   
 <div>Followers | <%=@user.followers.count%></div>
 <div>Following | <%=@user.followees.count%></div>
@@ -27,7 +27,7 @@
 </ul>
 
 
-<% if !current_user.nil? && %>
+<% if current_user.id == @user.id %>
     <%=button_to "Delete User", user_path(@user), method: "delete"%>
 <% else %>
     <%=button_to "Back to Explore", posts_path, method: "get"%> 

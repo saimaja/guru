@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
     # before_action :authorized
 
     def homepage
+        if current_user
+            redirect_to feed_path
+        end
     end
 
     def current_user
