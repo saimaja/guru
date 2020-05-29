@@ -1,11 +1,18 @@
 <br><br>
 <div><img src= "<%= @post.user.photo_url %>" alt= "user image" height="100" width="100"></div>
+<div><h3><%=link_to @post.user.name, user_path(@post.user.id)%>, <%=@post.user.guru_status%></h3></div>
 
-<div><%=link_to @post.user.name, user_path(@post.user.id)%>, posted on <%=@post.created_at.strftime("%A, %B %-d, %Y")%></div>
+<% if !current_user.following?(@post.user)%>
+        <%=button_to "Follow", user_follows_path(@post.user), method: "post"%>
+    <% else %>
+        <%=button_to "Unfollow", user_follow_path(@post.user), method: "delete"%>
+    <%end%>
+
+ 
+<br>
+<div><%=link_to @post.title, @post.media_link, target: :_blank%>, posted on <%=@post.created_at.strftime("%A, %B %-d, %Y")%></div>
 <div><%=@post.description%></div>
 
-<br>
-<%=link_to @post.title, @post.media_link, target: :_blank%>
 <div><%=@post.media_type%> | <%=@post.zens.size%> <%= (@post.zens.size) == 1 ? 'Zen' : 'Zens'%><%=button_to "Zen", post_zens_path(@post), method: "post"%></div>
 
 
@@ -13,16 +20,17 @@
 <%if flash[:notice]%>
     <div class = 'error'><%= flash[:notice] %></div>
 <%end%>
-
+<br>
 <h4>Comments:</h4>
 <ul>
 <%@post.comments.each do |comment|%>
-<li><%=comment.text%><br><%=comment.user.name%> on <%=comment.created_at.strftime("%A, %B %-d, %Y")%> 
-
-<%=button_to "Delete this Comment", post_comment_path(post_id: @post.id, id: comment.id), method: "delete"%></li>
+<li><%=comment.text%><br><%=link_to comment.user.name, user_path(comment.user)%> on <%=comment.created_at.strftime("%A, %B %-d, %Y")%> 
+    <%if current_user.id == comment.user.id%>
+        <%=button_to "Delete this Comment", post_comment_path(post_id: @post.id, id: comment.id), method: "delete"%></li>
+    <%else%>
+    <%end%>
 <%end%>
 </ul>
-
 
 
 <div>
@@ -33,7 +41,10 @@
 <%end%>
 </div>
 
-<!--<%=button_to "Return to Explore", posts_path, method: "get"%>-->
-<%=button_to "Delete Post", post_path(@post), method: "delete"%>
-
-
+<div>
+<% if current_user.id == @post.user.id%>
+    <%=button_to "Delete Post", post_path(@post), method: "delete"%>
+<% else %>
+    <%=button_to "Back to Explore", posts_path, method: "get"%> 
+<%end%>
+</div>

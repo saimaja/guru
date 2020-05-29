@@ -1,3 +1,6 @@
+
+<br>
+<div><img src= "<%= @user.photo_url %>" alt= "profile image" height="100" width="100"></div>
 <div><h3><%=@user.name%></h3></div>
 <div>Guru Status: <%=@user.guru_status%></div> 
 <br>
@@ -6,23 +9,16 @@
     <% else %>
         <%=button_to "Unfollow", user_follow_path(@user), method: "delete"%>
     <%end%>
-<br>
 
-<<<<<<< HEAD
-<div><img src= "<%= @user.photo_url %>" alt= "user image" height="100" width="100"></div>
-=======
-<div><img src= "<%= @user.photo_url %>" alt= "user's profile image" height="170" width="160"></div>
->>>>>>> ee3eb6f363c2d37ca1650d62aca83491f6544260
+
   
 <div>Followers | <%=@user.followers.count%></div>
 <div>Following | <%=@user.followees.count%></div>
-
-
-<h3>Occupation:</h3><%=@user.occupation%>
-<h3>Favorite Quote:</h3><%=@user.quote%>
-
-    
-
+<br>
+<div><h3>Occupation:</h3> <%=@user.occupation%></div>
+<br>
+<div><h3>Favorite Quote:</h3> <%=@user.quote%> </div>
+<br>
 <h3>Posts:</h3>
 <ul>
     <%@user.posts.each do |post|%>

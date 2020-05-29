@@ -1,7 +1,7 @@
 class ZensController < ApplicationController
     before_action :find_post
     before_action :find_zen, only: [:destroy]
-
+    
     def create
         if current_user.already_zen?(@post)
             redirect_to post_path(@post), :flash => { :notice => "Relax, you already zenned this!" }    
