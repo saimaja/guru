@@ -5,7 +5,7 @@ class ZensController < ApplicationController
     def create
         if already_zen?
             
-            redirect_to post_path(@post), :flash => { :notice => "You can\'t zen more than once" }    
+            redirect_to post_path(@post), :flash => { :notice => "Relax, you already zenned this!" }    
         else
             @post.zens.create(user_id: current_user.id)
             redirect_to post_path(@post)
@@ -15,7 +15,7 @@ class ZensController < ApplicationController
     
     def destroy
         if !(already_zen?)
-            flash[:notice] = 'Cannot unzen'
+            flash[:notice] = 'Sorry, you can\'t unzen'
         else
             @zen.destroy
         end

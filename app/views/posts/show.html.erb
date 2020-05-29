@@ -1,9 +1,14 @@
-<h1>Post Detail</h1>
+<br><br>
+<div><img src= "<%= @post.user.photo_url %>" alt= "user image" height="170" width="160"></div>
 
-<h3>User:</h3><%=link_to @post.user.name, user_path(@post.user.id)%>
-<h3>Description:</h3><%=@post.description%>
-<h3>Post:</h3><%=link_to @post.title, @post.media_link, target: :_blank%>
+<div><h3><%=link_to @post.user.name, user_path(@post.user.id)%>, posted on <%=@post.created_at.strftime("%A, %B %-d, %Y")%></h3></div>
+<div><%=@post.description%></div>
+
+<br>
+<%=link_to @post.title, @post.media_link, target: :_blank%>
 <div><%=@post.media_type%> | <%=@post.zens.count%> <%= (@post.zens.count) == 1 ? 'Zen' : 'Zens'%><%=button_to "Zen", post_zens_path(@post), method: "post"%></div>
+
+
 
 <%if flash[:notice]%>
     <div class = 'error'><%= flash[:notice] %></div>
@@ -12,7 +17,7 @@
 <h3>Comments:</h3>
 <ul>
 <%@post.comments.each do |comment|%>
-<li><%=comment.text%><br> by <%=comment.user.name%> <%=button_to "Delete this Comment", post_comment_path(post_id: @post.id, id: comment.id), method: "delete"%></li>
+<li><%=comment.text%><br><%=comment.user.name%> on <%=comment.created_at.strftime("%A, %B %-d, %Y")%> <%=button_to "Delete this Comment", post_comment_path(post_id: @post.id, id: comment.id), method: "delete"%></li>
 <%end%>
 </ul>
 

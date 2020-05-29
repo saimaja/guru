@@ -1,30 +1,34 @@
-<h1><%=@user.name%>'s Profile</h1>
-
-<h3>Name:</h3><%=@user.name%> 
-
-
+<h1><%=@user.name%></h1>
+<div>Guru Status: <%=@user.guru_status%></div> 
+<br>
 <% if !current_user.following?(@user)%>
+        <%=button_to "Follow", user_follows_path(@user), method: "post"%>
+    <% else %>
+        <%=button_to "Unfollow", user_follow_path(@user), method: "delete"%>
+    <%end%>
+<br>
 
-    <%=button_to "Follow", user_follows_path(@user), method: "post"%>
+<div><img src= "<%= @user.photo_url %>" alt= "user image" height="170" width="160"></div>
+  
+<div>Followers | <%=@user.followers.count%></div>
+<div>Following | <%=@user.followees.count%></div>
 
-<% else %>
-    <%=button_to "Unfollow", user_follow_path(@user), method: "delete"%>
-    
-<%end%>
 
 <h3>Occupation:</h3><%=@user.occupation%>
 <h3>Favorite Quote:</h3><%=@user.quote%>
-<h3>Guru Status:</h3>
 
+    
 
-
-<h3><%=@user.name%>'s Posts:</h3>
+<h3>Posts:</h3>
 <ul>
-<%@user.posts.each do |post|%>
-<li><%=link_to post.title, post_path(post.id)%> | Zens: <%=post.zens.count%></li>
-<%end%>
+    <%@user.posts.each do |post|%>
+    <li><%=link_to post.title, post_path(post.id)%> | Zens: <%=post.zens.count%></li>
+    <%end%>
 </ul>
 
 
-<div><%=button_to "Return to User List", users_path, method: "get"%></div>
-<%=button_to "Delete User", user_path(@user), method: "delete"%>
+<% if !!current_user.nil? %>
+    <%=button_to "Delete User", user_path(@user), method: "delete"%>
+<% else %>
+    <%=button_to "Back to Explore", posts_path, method: "get"%> 
+<%end%>

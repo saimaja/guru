@@ -16,9 +16,7 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    # def logged_in?
-    #     !!session[:user_id]
-    # end
+    
 
     # def authorized
     #     redirect_to '/' unless logged_in?

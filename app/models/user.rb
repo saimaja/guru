@@ -23,6 +23,14 @@ class User < ApplicationRecord
     def following?(user)
         followees.include?(user)
     end
+    
+    def guru_status
+        if self.zens.count < 5
+            return "Baby Guru"
+        else
+            return "Master Guru"
+        end
+    end
 
      
     def feed
