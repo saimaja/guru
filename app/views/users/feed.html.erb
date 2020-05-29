@@ -1,7 +1,7 @@
 <h1 class = 'center'>Your Feed</h1>
 
-<div>Followers: <%=current_user.followers.count%> | Following: <%=current_user.followees.count%></div>
-
+<div class = 'center'>Followers: <%=current_user.followers.count%> | Following: <%=current_user.followees.count%></div>
+<br>
 <ul>
 <%current_user.feed.each do |post|%>
 <li><%=link_to post.title, post_path(post)%> | by <%=link_to post.user.name, user_path(post.user)%> </li>

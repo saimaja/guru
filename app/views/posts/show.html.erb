@@ -15,12 +15,14 @@
 
 <div><%=@post.media_type%> | <%=@post.zens.size%> <%= (@post.zens.size) == 1 ? 'Zen' : 'Zens'%><%=button_to "Zen", post_zens_path(@post), method: "post"%></div>
 
-
-
+<div class = 'error_text'> 
 <%if flash[:notice]%>
-    <div class = 'error'><%= flash[:notice] %></div>
+   <div class = 'error'><%= flash[:notice] %></div>
 <%end%>
+</div>
+
 <br>
+
 <h4>Comments:</h4>
 <ul>
 <%@post.comments.each do |comment|%>
