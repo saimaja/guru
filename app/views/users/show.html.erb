@@ -1,19 +1,19 @@
 
 <br>
-<div><img src= "<%= @user.photo_url %>" alt= "profile image" height="100" width="100"></div>
-<div><h3><%=@user.name%></h3></div>
-<div>Guru Status: <%=@user.guru_status%></div> 
+<div class = 'center'><img src= "<%= @user.photo_url %>" alt= "profile image" height="100" width="100"></div>
+<div class = 'center'><h3><%=@user.name%></h3></div>
+<div class = 'center'>Guru Status: <%=@user.guru_status%></div> 
 <br>
 <% if !current_user.following?(@user)%>
-        <%=button_to "Follow", user_follows_path(@user), method: "post"%>
+     <div class = 'center'>   <%=button_to "Follow", user_follows_path(@user), method: "post"%></div>
     <% else %>
-        <%=button_to "Unfollow", user_follow_path(@user), method: "delete"%>
+       <div class = 'center'> <%=button_to "Unfollow", user_follow_path(@user), method: "delete"%></div>
     <%end%>
 
 
   
-<div>Followers | <%=@user.followers.count%></div>
-<div>Following | <%=@user.followees.count%></div>
+<div class = 'center'>Followers | <%=@user.followers.count%></div>
+<div class = 'center'>Following | <%=@user.followees.count%></div>
 <br>
 <div><h3>Occupation:</h3> <%=@user.occupation%></div>
 <br>
@@ -28,7 +28,8 @@
 
 
 <% if current_user.id == @user.id %>
-    <%=button_to "Delete User", user_path(@user), method: "delete"%>
+    <%=button_to "Edit Your Profile", edit_user_path(@user), method: 'get'%>
+    <%=button_to "Delete Profile", user_path(@user), method: "delete"%>
 <% else %>
     <%=button_to "Back to Explore", posts_path, method: "get"%> 
 <%end%>

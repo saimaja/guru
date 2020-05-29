@@ -13,12 +13,14 @@
     <%= favicon_link_tag asset_path('favicon.ico') %>
 
   </head>
-
+  <div class = 'header'>
+  
+    
+  </div>
   <body>
   <% unless controller_name == 'sessions' && action_name == 'show_login_form'%>
 
     <% if session[:logged_in_user_id] %>
-      <div class="container-fluid">
       
    
       <div> Welcome <%= current_user.username %>! </div>
@@ -36,7 +38,10 @@
       <%end%>
     <%end%>
     <%= yield %>
+ 
+  </div>
   </body>
+ 
 </html>
 
 

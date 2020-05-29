@@ -1,16 +1,16 @@
 <br><br>
-<div><img src= "<%= @post.user.photo_url %>" alt= "user image" height="100" width="100"></div>
-<div><h3><%=link_to @post.user.name, user_path(@post.user.id)%>, <%=@post.user.guru_status%></h3></div>
+<div class = 'center'><img src= "<%= @post.user.photo_url %>" alt= "user image" height="100" width="100"></div>
+<div class = 'center'><h3><%=link_to @post.user.name, user_path(@post.user.id)%>, <%=@post.user.guru_status%></h3></div>
 
 <% if !current_user.following?(@post.user)%>
-        <%=button_to "Follow", user_follows_path(@post.user), method: "post"%>
+       <div class = 'center'> <%=button_to "Follow", user_follows_path(@post.user), method: "post"%></div>
     <% else %>
-        <%=button_to "Unfollow", user_follow_path(@post.user), method: "delete"%>
+      <div class = 'center'>  <%=button_to "Unfollow", user_follow_path(@post.user), method: "delete"%></div>
     <%end%>
 
  
 <br>
-<div><%=link_to @post.title, @post.media_link, target: :_blank%>, posted on <%=@post.created_at.strftime("%A, %B %-d, %Y")%></div>
+<div><%=link_to @post.title, @post.media_link, target: :_blank%> <h6>Posted on <%=@post.created_at.strftime("%A, %B %-d, %Y")%></h6></div>
 <div><%=@post.description%></div>
 
 <div><%=@post.media_type%> | <%=@post.zens.size%> <%= (@post.zens.size) == 1 ? 'Zen' : 'Zens'%><%=button_to "Zen", post_zens_path(@post), method: "post"%></div>

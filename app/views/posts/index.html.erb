@@ -1,5 +1,6 @@
-<h1>Calm Down</h1>
 
+<h1 class = 'center'>Calm Down</h1>
+<br>
 <ul>
 <%@posts.each do |post|%>
 <li><%=link_to post.title, post_path(post.id)%> | by <%=link_to post.user.name, user_path(post.user)%> </li>
