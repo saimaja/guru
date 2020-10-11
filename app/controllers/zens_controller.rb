@@ -3,16 +3,18 @@ class ZensController < ApplicationController
     before_action :find_zen, only: [:destroy]
 
     def create
-        if current_user.already_zen?(@post)
+        if already_zen?
+            
             redirect_to post_path(@post), :flash => { :notice => "Relax, you already zenned this!" }    
         else
             @post.zens.create(user_id: current_user.id)
             redirect_to post_path(@post)
         end
+        
     end
     
     def destroy
-        if !(current_user.already_zen?(@post))
+        if !(already_zen?)
             flash[:notice] = 'Sorry, you can\'t unzen'
         else
             @zen.destroy
@@ -29,5 +31,10 @@ class ZensController < ApplicationController
         @post = Post.find(params[:post_id])
     end
 
-   
+    def already_zen?
+        Zen.where(user_id: current_user.id, post_id: params[:post_id]).exists?
+    end
+
 end
+   
+

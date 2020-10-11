@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
 
-    before_action :find_post, only: [:show, :edit, :update, :destroy,]
-    
+    before_action :find_post, only: [:show, :edit, :update, :destroy]
     
     def index
-        @posts = Post.left_joins(:zens).group(:post_id).order('COUNT(post_id) DESC')
+        # @posts = Post.left_joins(:zens).group(:post_id).order('COUNT(post_id) DESC')
+        @posts = Post.all.includes(:zens, :comments, :user)
+        @posts = @posts.sort {|a, b| b.zens.size <=> a.zens.size }
     end
 
     def show
